@@ -16,6 +16,7 @@
 // but the data load parts seem to work ok.
 //============================================================================
 using System;
+using System.Collections.Generic;
 using DependencyInjectionDemo.DataConnections;
 using WebApp2.Models.Addresses;
 
@@ -26,14 +27,79 @@ namespace DependencyInjectionDemo
 
         static void Main(string[] args)
         {
-            Console.WriteLine("========= Countries ========");
-            ShowCountriesAll();
 
-            ShowStatesAll();
+            //NewCountryCode();
+
+            InitNotifyPrefs();
+
+            //Console.WriteLine("========= Countries ========");
+            //ShowCountriesAll();
+
+            //ShowStatesAll();
 
             Console.WriteLine("----------------------------");
             Console.WriteLine("Press the ANY key to exit:");
             Console.ReadLine();
+        }
+
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        public static void NewCountryCode()
+        {
+            try
+            {
+                using (CountryCodesDB cntry_db1 = new CountryCodesDB(SqlExpDBConnection.SqlConnection()))
+                {
+                    List<CountryCode> l1 = cntry_db1.Get();
+                    CountryCode l2 = cntry_db1.Get("MEX");
+                    CountryCode new_code = new CountryCode();
+                    new_code.CountryAbbr = "TST";
+                    new_code.CountryName = "Test";
+                    cntry_db1.Del(new_code.CountryAbbr);
+                    cntry_db1.Add(new_code);
+                }
+                Console.WriteLine("new code was added");
+                ShowCountriesAll();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Console.WriteLine(ex.InnerException.InnerException.Message);
+                    }
+
+                }
+            }
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        public static void InitNotifyPrefs()
+        {
+            try
+            {
+                using (NotifyPrefDB db1 = new NotifyPrefDB(SqlExpDBConnection.SqlConnection()))
+                {
+                    db1.Initialize();
+                    List<NotifyPref> l1 = db1.Get();
+                }
+                Console.WriteLine("new code was added");
+                ShowCountriesAll();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Console.WriteLine(ex.InnerException.InnerException.Message);
+                    }
+
+                }
+            }
         }
 
 
@@ -62,12 +128,12 @@ namespace DependencyInjectionDemo
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         public static void ShowCountriesAll()
         {
-            Console.WriteLine("--------- Oracle ---------");
-            ShowCountries(new CountryCodesDB(OracleDBConnection.SqlConnection()));
+            //Console.WriteLine("--------- Oracle ---------");
+            //ShowCountries(new CountryCodesDB(OracleDBConnection.SqlConnection()));
             Console.WriteLine("--------- Sql Express ---------");
             ShowCountries(new CountryCodesDB(SqlExpDBConnection.SqlConnection()));
-            Console.WriteLine("--------- Sql Remote ---------");
-            ShowCountries(new CountryCodesDB(SqlRmtDBConnection.SqlConnection()));
+            //Console.WriteLine("--------- Sql Remote ---------");
+            //ShowCountries(new CountryCodesDB(SqlRmtDBConnection.SqlConnection()));
         }
         public static void ShowCountries(CountryCodesDB db_countries)
         {

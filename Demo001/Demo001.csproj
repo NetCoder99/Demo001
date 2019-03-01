@@ -62,6 +62,8 @@
     <Compile Include="DataConnections\OracleDBConnection.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCode.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCodesDB.cs" />
+    <Compile Include="Models\Addresses\NotifyPrefs\NotifyPref.cs" />
+    <Compile Include="Models\Addresses\NotifyPrefs\NotifyPrefDB.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesCAN.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesMEX.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesUSA.cs" />

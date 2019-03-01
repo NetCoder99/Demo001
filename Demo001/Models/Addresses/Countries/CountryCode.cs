@@ -27,7 +27,9 @@ namespace WebApp2.Models.Addresses
         [Required]
         public DateTime LoadDate  { get; set; }
 
-        public CountryCode() { }
+        public CountryCode() {
+            this.LoadDate = DateTime.Now;
+        }
         public CountryCode(int CountryCodeId, string CountryAbbr, string CountryName)
         {
             this.CountryCodeId = CountryCodeId;
