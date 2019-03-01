@@ -1,4 +1,11 @@
-﻿using System;
+﻿//============================================================================
+// John Dugger
+// 02/27/2019
+// Define the db fields for the States name dropdowns/lists, etc. Keep 
+// this simple as it maps to the DB Tables and changing this leads
+// to migration issues in the EF, which I don't want to deal with now.
+//============================================================================
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

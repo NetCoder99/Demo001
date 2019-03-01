@@ -1,7 +1,10 @@
-﻿using System;
+﻿//============================================================================
+// John Dugger
+// 02/27/2019
+// Hard coded list that the DbContext object can access to initialize 
+// the database tables.
+//============================================================================
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace WebApp2.Models.Addresses
 {

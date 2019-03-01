@@ -1,9 +1,14 @@
 ﻿//============================================================================
 // John Dugger
 // 02/27/2019
-// I am using Entity Framework 6, so need to define the EF stuff. 
-// Also, the list of countries is static and immutable, extract once and 
-// make available to all callers.
+// Here is my initial encapulation with Entity Framework 6.
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// NOTE: The list returned by this is static, the idea is instantiate this 
+// one time only and then any process that needs it can access the public 
+// lists property, without a round trip to the database.
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// NOTE: I also added some code that uses the EF6 Code First to create and 
+// populate the data base tables.
 //============================================================================
 using System.Collections.Generic;
 using System.Data.Entity;

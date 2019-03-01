@@ -9,13 +9,12 @@
 // No actual dependency injection, yet. This mostly shows how to manage 
 // database connections and some EF Code First techniques
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// I also wanted to experminent with using EF Code First as a tool to 
+// I also wanted to experiment with using EF Code First as a tool to 
 // initialize my databases, create the prototype tables, insert some test 
 // data etc. It works reaonsably well with Sql Server, not so much with 
 // Oracle. I still have to 'adjust' the tables in both Oracle and Sql Server
 // but the data load parts seem to work ok.
 //============================================================================
-
 using System;
 using DependencyInjectionDemo.DataConnections;
 using WebApp2.Models.Addresses;
