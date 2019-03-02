@@ -1,14 +1,9 @@
 ﻿//============================================================================
 // John Dugger
 // 02/27/2019
-// Here is my initial encapulation with Entity Framework 6.
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// NOTE: The list returned by this is static, the idea is instantiate this 
-// one time only and then any process that needs it can access the public 
-// lists property, without a round trip to the database.
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// NOTE: I also added some code that uses the EF6 Code First to create and 
-// populate the data base tables.
+// Connect to the database and get the requested list. I also added some 
+// code that uses the EF6 Code First to create and populate the data base 
+// tables, those are only called during development, when needed.
 //============================================================================
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,17 +14,15 @@ using System;
 namespace WebApp2.Models.Addresses
 {
 
-    class CountryCodesDB : DbContext
+    public interface IWebApp2DBContext
     {
-        private static List<CountryCode> _CountryCodesList = new List<CountryCode>();
-        public static List<CountryCode> CountryCodesList { get { return _CountryCodesList; } }
+        void Initialize();
+    }
 
+    class CountryCodesDB : DbContext, IWebApp2DBContext
+    {
         public CountryCodesDB(DbConnection sql_con)    : base(sql_con, true)  { }
-
-        // Bind EF to the poco
         public DbSet<CountryCode> CountryCodes { get; set; }
-
-        // Called only when I want to refresh the database 
         public void Initialize()
         {
             if (CountryCodes.Count() == 0)
@@ -43,7 +36,5 @@ namespace WebApp2.Models.Addresses
                 SaveChanges();
             }
         }
-
-
     }
 }

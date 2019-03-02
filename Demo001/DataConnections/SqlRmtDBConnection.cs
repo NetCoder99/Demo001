@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace DependencyInjectionDemo.DataConnections
 {
-    class SqlRmtDBConnection : DbContext
+    class SqlRmtDBConnection
     {
         public static SqlConnection SqlConnection()
         {

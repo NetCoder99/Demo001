@@ -8,9 +8,10 @@ using System.Collections.Generic;
 
 namespace WebApp2.Models.Addresses
 {
-    public class GetStateCodesCAN
+    public class GetStateCodesCAN : IGetStates
     {
-        public static List<StateCode> GetStates()
+        public int CountryCode { get { return 3; } }
+        public List<StateCode> GetStates()
         {
             List<StateCode> rtn_list = new List<StateCode>();
             rtn_list.Add(new StateCode(3, "AB", "Alberta"));

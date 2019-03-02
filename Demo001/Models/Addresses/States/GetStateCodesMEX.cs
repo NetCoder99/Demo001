@@ -8,9 +8,11 @@ using System.Collections.Generic;
 
 namespace WebApp2.Models.Addresses
 {
-    public class GetStateCodesMEX 
+    public class GetStateCodesMEX : IGetStates
     {
-        public static List<StateCode> GetStates()
+        public int CountryCode { get { return 2; } }
+
+        public List<StateCode> GetStates()
         {
             List<StateCode> rtn_list = new List<StateCode>();
             rtn_list.Add(new StateCode(2, "AG", "Aguascalientes"));
