@@ -37,31 +37,5 @@ namespace WebApp2.Models.Addresses
         }
 
 
-        //private void Initialize(CountryCode cntry_code)
-        //{
-        //    var query = from c_codes in StateCodes
-        //                where c_codes.CountryCodeId == cntry_code.CountryCodeId
-        //                select c_codes;
-        //    if (query.Count() == 0)
-        //    {
-        //        switch (cntry_code.CountryAbbr)
-        //        {
-        //            case "MEX" :
-        //                StateCodes.AddRange(new GetStateCodesMEX().GetStates());
-        //                break;
-        //            case "CAN":
-        //                StateCodes.AddRange(new GetStateCodesCAN().GetStates());
-        //                break;
-        //            case "USA":
-        //                StateCodes.AddRange(new GetStateCodesUSA().GetStates());
-        //                break;
-        //            default: // di would make this condition impossible ?
-        //                throw new Exception("Unkown Country Code");
-        //        }
-
-        //        SaveChanges();
-        //    }
-        //}
-
     }
 }
