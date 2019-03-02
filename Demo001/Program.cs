@@ -16,6 +16,7 @@
 // but the data load parts seem to work ok.
 //============================================================================
 using System;
+using System.Data.Common;
 using System.Collections.Generic;
 using DependencyInjectionDemo.DataConnections;
 using WebApp2.Models.Addresses;
@@ -27,10 +28,11 @@ namespace DependencyInjectionDemo
 
         static void Main(string[] args)
         {
+            InitialiazeLists();
+            ShowCountries();
+            ShowStates();
 
-            //NewCountryCode();
-
-            InitNotifyPrefs();
+            //InitNotifyPrefs();
 
             //Console.WriteLine("========= Countries ========");
             //ShowCountriesAll();
@@ -42,104 +44,131 @@ namespace DependencyInjectionDemo
             Console.ReadLine();
         }
 
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        public static void NewCountryCode()
+        public static void InitialiazeLists()
         {
-            try
-            {
-                using (CountryCodesDB cntry_db1 = new CountryCodesDB(SqlExpDBConnection.SqlConnection()))
-                {
-                    List<CountryCode> l1 = cntry_db1.Get();
-                    CountryCode l2 = cntry_db1.Get("MEX");
-                    CountryCode new_code = new CountryCode();
-                    new_code.CountryAbbr = "TST";
-                    new_code.CountryName = "Test";
-                    cntry_db1.Del(new_code.CountryAbbr);
-                    cntry_db1.Add(new_code);
-                }
-                Console.WriteLine("new code was added");
-                ShowCountriesAll();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                if (ex.InnerException != null)
-                {
-                    if (ex.InnerException.InnerException != null)
-                    {
-                        Console.WriteLine(ex.InnerException.InnerException.Message);
-                    }
-
-                }
-            }
+            DbConnection db_con = SqlExpDBConnection.SqlConnection();
+            CountryCodeList.Initialize(new CountryCodesDB(db_con));
+            StateCodeList.Initialize(new StateCodesDB(db_con));
         }
 
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        public static void InitNotifyPrefs()
+        public static void ShowCountries()
         {
-            try
-            {
-                using (NotifyPrefDB db1 = new NotifyPrefDB(SqlExpDBConnection.SqlConnection()))
-                {
-                    db1.Initialize();
-                    List<NotifyPref> l1 = db1.Get();
-                }
-                Console.WriteLine("new code was added");
-                ShowCountriesAll();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                if (ex.InnerException != null)
-                {
-                    if (ex.InnerException.InnerException != null)
-                    {
-                        Console.WriteLine(ex.InnerException.InnerException.Message);
-                    }
-
-                }
-            }
-        }
-
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        public static void ShowStatesAll()
-        {
-            using (var conn = SqlExpDBConnection.SqlConnection())
-            {
-                conn.Open();
-                CountryCodesDB cntry_db1 = new CountryCodesDB(conn);
-                foreach (CountryCode cnty_code in cntry_db1.CountryCodesList)
-                {
-                    StateCodesDB state_db1 = new StateCodesDB(conn, cnty_code);
-                    ShowStates(state_db1, cnty_code.CountryName);
-                }
-            }
-        }
-        public static void ShowStates(StateCodesDB db_states , string cntry_name)
-        {
-            Console.WriteLine("========= States for {0} ========", cntry_name);
-            foreach (StateCode cc in db_states.StateCodesList)
-            { Console.WriteLine("Country = {0} ", cc.StateName); }
-        }
-
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        public static void ShowCountriesAll()
-        {
-            //Console.WriteLine("--------- Oracle ---------");
-            //ShowCountries(new CountryCodesDB(OracleDBConnection.SqlConnection()));
-            Console.WriteLine("--------- Sql Express ---------");
-            ShowCountries(new CountryCodesDB(SqlExpDBConnection.SqlConnection()));
-            //Console.WriteLine("--------- Sql Remote ---------");
-            //ShowCountries(new CountryCodesDB(SqlRmtDBConnection.SqlConnection()));
-        }
-        public static void ShowCountries(CountryCodesDB db_countries)
-        {
-            foreach (CountryCode cc in db_countries.CountryCodesList)
+            Console.WriteLine("========= Countries ========");
+            foreach (CountryCode cc in CountryCodeList.Get())
             { Console.WriteLine("Country = {0} ", cc.CountryName); }
         }
+
+        public static void ShowStates()
+        {
+            foreach (CountryCode country_code in CountryCodeList.Get())
+            {
+                Console.WriteLine("========= States for {0} ========", country_code.CountryName);
+                foreach (StateCode stateCode in StateCodeList.Get(country_code))
+                { Console.WriteLine("State Abbr = {0}; State Name {1} ", stateCode.StateAbbr, stateCode.StateName); }
+            }
+        }
+
+
+
+
+        //// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //public static void NewCountryCode()
+        //{
+        //    try
+        //    {
+        //        using (CountryCodesDB cntry_db1 = new CountryCodesDB(SqlExpDBConnection.SqlConnection()))
+        //        {
+        //            List<CountryCode> l1 = CountryCodeList.Get();
+        //            CountryCode l2 = CountryCodeList.Get("MEX");
+        //            //CountryCode new_code = new CountryCode();
+        //            //new_code.CountryAbbr = "TST";
+        //            //new_code.CountryName = "Test";
+        //            //cntry_db1.Del(new_code.CountryAbbr);
+        //            //cntry_db1.Add(new_code);
+        //        }
+        //        Console.WriteLine("new code was added");
+        //        ShowCountriesAll();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //        if (ex.InnerException != null)
+        //        {
+        //            if (ex.InnerException.InnerException != null)
+        //            {
+        //                Console.WriteLine(ex.InnerException.InnerException.Message);
+        //            }
+
+        //        }
+        //    }
+        //}
+
+        //// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //public static void InitNotifyPrefs()
+        //{
+        //    try
+        //    {
+        //        using (NotifyPrefDB db1 = new NotifyPrefDB(SqlExpDBConnection.SqlConnection()))
+        //        {
+        //            db1.Initialize();
+        //            List<NotifyPref> l1 = db1.Get();
+        //        }
+        //        Console.WriteLine("new code was added");
+        //        ShowCountriesAll();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //        if (ex.InnerException != null)
+        //        {
+        //            if (ex.InnerException.InnerException != null)
+        //            {
+        //                Console.WriteLine(ex.InnerException.InnerException.Message);
+        //            }
+
+        //        }
+        //    }
+        //}
+
+
+        //// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //public static void ShowStatesAll()
+        //{
+        //    //foreach (CountryCode cnty_code in CountryCodeList.Get())
+        //    //{
+        //    //    Console.WriteLine("========= States for {0} ========", cnty_code.CountryName);
+        //    //    ShowStates(state_db1, cnty_code.CountryName);
+        //    //}
+
+        //    //using (var conn = SqlExpDBConnection.SqlConnection())
+        //    //{
+        //    //    conn.Open();
+        //    //    CountryCodesDB cntry_db1 = new CountryCodesDB(conn);
+        //    //    foreach (CountryCode cnty_code in CountryCodeList.Get())
+        //    //    {
+        //    //        StateCodesDB state_db1 = new StateCodesDB(conn, cnty_code);
+        //    //        ShowStates(state_db1, cnty_code.CountryName);
+        //    //    }
+        //    //}
+        //}
+
+
+        //// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //public static void ShowCountriesAll()
+        //{
+        //    //Console.WriteLine("--------- Oracle ---------");
+        //    //ShowCountries(new CountryCodesDB(OracleDBConnection.SqlConnection()));
+        //    Console.WriteLine("--------- Sql Express ---------");
+        //    ShowCountries(new CountryCodesDB(SqlExpDBConnection.SqlConnection()));
+        //    //Console.WriteLine("--------- Sql Remote ---------");
+        //    //ShowCountries(new CountryCodesDB(SqlRmtDBConnection.SqlConnection()));
+        //}
+        //public static void ShowCountries(CountryCodesDB db_countries)
+        //{
+        //    foreach (CountryCode cc in CountryCodeList.Get())
+        //    { Console.WriteLine("Country = {0} ", cc.CountryName); }
+        //}
 
     }
 }

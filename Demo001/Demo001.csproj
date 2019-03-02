@@ -61,12 +61,14 @@
     <Compile Include="DataConnections\SqlRmtDBConnection.cs" />
     <Compile Include="DataConnections\OracleDBConnection.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCode.cs" />
+    <Compile Include="Models\Addresses\Countries\CountryCodeList.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCodesDB.cs" />
     <Compile Include="Models\Addresses\NotifyPrefs\NotifyPref.cs" />
     <Compile Include="Models\Addresses\NotifyPrefs\NotifyPrefDB.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesCAN.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesMEX.cs" />
     <Compile Include="Models\Addresses\States\GetStateCodesUSA.cs" />
+    <Compile Include="Models\Addresses\States\StateCodeList.cs" />
     <Compile Include="Models\Addresses\States\StateCodesDB.cs" />
     <Compile Include="Models\Addresses\States\StateCode.cs" />
     <Compile Include="Program.cs" />

@@ -14,26 +14,22 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Data.Common;
+using System;
 
 namespace WebApp2.Models.Addresses
 {
 
     class CountryCodesDB : DbContext
     {
+        private static List<CountryCode> _CountryCodesList = new List<CountryCode>();
+        public static List<CountryCode> CountryCodesList { get { return _CountryCodesList; } }
 
         public CountryCodesDB(DbConnection sql_con)    : base(sql_con, true)  { }
-
-        // the dbcontext does not survive the init process but for this I don't care, use a List<>
-        // to cache the data and make a read only public property available to anyone that needs the 
-        // data we extracted from the database.
-        private List<CountryCode> _CountryCodesList = new List<CountryCode>();
-        public  List<CountryCode> CountryCodesList { get { return _CountryCodesList; } }
 
         // Bind EF to the poco
         public DbSet<CountryCode> CountryCodes { get; set; }
 
-        // the idea is that this will work against any db connection, if there is no data then 
-        // create some, save to the database
+        // Called only when I want to refresh the database 
         public void Initialize()
         {
             if (CountryCodes.Count() == 0)
@@ -48,27 +44,6 @@ namespace WebApp2.Models.Addresses
             }
         }
 
-        public List<CountryCode> Get()
-        {
-            return this.CountryCodes.ToList();
-        }
-        public CountryCode Get(string country_abbr)
-        {
-            return this.CountryCodes.Where(w=>w.CountryAbbr == country_abbr).First();
-        }
-
-        public void Add(CountryCode country_code)
-        {
-            CountryCodes.Add(country_code);
-            SaveChanges();
-        }
-
-        public void Del(string country_abbr)
-        {
-            CountryCode c1 = Get(country_abbr);
-            CountryCodes.Remove(c1);
-            SaveChanges();
-        }
 
     }
 }
