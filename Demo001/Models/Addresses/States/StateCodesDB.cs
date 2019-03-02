@@ -22,10 +22,6 @@ namespace WebApp2.Models.Addresses
             Initialize(new GetStateCodesUSA());
             Initialize(new GetStateCodesUSA());
             Initialize(new GetStateCodesUSA());
-
-            //StateCodes.AddRange(GetStateCodesMEX.GetStates());
-            //StateCodes.AddRange(GetStateCodesCAN.GetStates());
-            //StateCodes.AddRange(GetStateCodesUSA.GetStates());
         }
 
         private void Initialize(IGetStates states_list)
