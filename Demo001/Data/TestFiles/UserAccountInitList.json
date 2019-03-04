@@ -1,0 +1,330 @@
+﻿{
+    "UserAccount": [
+        {
+            "Fields": [
+                {
+                    "Name": "UserAccountId",
+                    "Type": "int",
+					"Key": true
+                },
+                {
+                    "Name": "EmailAddress",
+                    "Type": "string",
+                    "Length": "50"
+                },
+                {
+                    "Name": "PassWord",
+                    "Type": "string",
+                    "Length": "50"
+                },
+                {
+                    "Name": "FirstName",
+                    "Type": "string",
+                    "Length": "50"
+                },
+                {
+                    "Name": "LastName",
+                    "Type": "string",
+                    "Length": "50"
+                },
+                {
+                    "Name": "PhoneNumber",
+                    "Type": "string",
+                    "Length": "50"
+                },
+                {
+                    "Name": "NotifyPrefEmail",
+                    "Type": "bool"
+                },
+                {
+                    "Name": "NotifyPrefText",
+                    "Type": "bool"
+                }
+            ],
+            "UserDetails": 
+                [
+                    {
+                        "Name": "Mario Speedwagon",
+                        "Password": "SpeedwagonPAss2",
+                        "email": "Mario_Speedwagon@nowhere.com",
+                        "FirstName": "Mario",
+                        "LastName": "Speedwagon",
+                        "Phone": "222.555.1388",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Name": "Petey Cruiser",
+                        "Password": "CruiserPAss3",
+                        "email": "Petey_Cruiser@nowhere.com",
+                        "FirstName": "Petey",
+                        "LastName": "Cruiser",
+                        "Phone": "333.555.2465",
+                        "PrefEmail": 1,
+                        "PrefText": 0
+                    },
+                    {
+                        "Name": "Anna Sthesia",
+                        "Password": "SthesiaPAss4",
+                        "email": "Anna_Sthesia@nowhere.com",
+                        "FirstName": "Anna",
+                        "LastName": "Sthesia",
+                        "Phone": "444.555.8772",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Name": "Paul Molive",
+                        "Password": "MolivePAss5",
+                        "email": "Paul_Molive@nowhere.com",
+                        "FirstName": "Paul",
+                        "LastName": "Molive",
+                        "Phone": "555.555.3415",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Name": "Anna Mull",
+                        "Password": "MullPAss6",
+                        "email": "Anna_Mull@nowhere.com",
+                        "FirstName": "Anna",
+                        "LastName": "Mull",
+                        "Phone": "666.555.1598",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Name": "Gail Forcewind",
+                        "Password": "ForcewindPAss7",
+                        "email": "Gail_Forcewind@nowhere.com",
+                        "FirstName": "Gail",
+                        "LastName": "Forcewind",
+                        "Phone": "777.555.5428",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Name": "Paige Turner",
+                        "Password": "TurnerPAss8",
+                        "email": "Paige_Turner@nowhere.com",
+                        "FirstName": "Paige",
+                        "LastName": "Turner",
+                        "Phone": "888.555.2716",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Name": "Bob Frapples",
+                        "Password": "FrapplesPAss9",
+                        "email": "Bob_Frapples@nowhere.com",
+                        "FirstName": "Bob",
+                        "LastName": "Frapples",
+                        "Phone": "999.555.1762",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Name": "Walter Melon",
+                        "Password": "MelonPAss10",
+                        "email": "Walter_Melon@nowhere.com",
+                        "FirstName": "Walter",
+                        "LastName": "Melon",
+                        "Phone": "101.555.5614",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Name": "Nick R. Bocker",
+                        "Password": "BockerPAss11",
+                        "email": "Nick_R._Bocker@nowhere.com",
+                        "FirstName": "Nick",
+                        "LastName": "Bocker",
+                        "Phone": "111.555.5568",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "AckuePAss12",
+                        "email": "Barb_Ackue@nowhere.com",
+                        "FirstName": "Barb",
+                        "LastName": "Ackue",
+                        "Phone": "121.555.9843",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "KinnearPAss13",
+                        "email": "Buck_Kinnear@nowhere.com",
+                        "FirstName": "Buck",
+                        "LastName": "Kinnear",
+                        "Phone": "131.555.7896",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "LifePAss14",
+                        "email": "Greta_Life@nowhere.com",
+                        "FirstName": "Greta",
+                        "LastName": "Life",
+                        "Phone": "141.555.7487",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "MembritPAss15",
+                        "email": "Ira_Membrit@nowhere.com",
+                        "FirstName": "Ira",
+                        "LastName": "Membrit",
+                        "Phone": "151.555.7155",
+                        "PrefEmail": 1,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "LeerPAss16",
+                        "email": "Shonda_Leer@nowhere.com",
+                        "FirstName": "Shonda",
+                        "LastName": "Leer",
+                        "Phone": "161.555.6181",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "LeePAss17",
+                        "email": "Brock_Lee@nowhere.com",
+                        "FirstName": "Brock",
+                        "LastName": "Lee",
+                        "Phone": "171.555.5811",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "DidasPAss18",
+                        "email": "Maya_Didas@nowhere.com",
+                        "FirstName": "Maya",
+                        "LastName": "Didas",
+                        "Phone": "181.555.8581",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "OsheaPAss19",
+                        "email": "Rick_Oshea@nowhere.com",
+                        "FirstName": "Rick",
+                        "LastName": "Oshea",
+                        "Phone": "191.555.5424",
+                        "PrefEmail": 1,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "SariyaPAss20",
+                        "email": "Pete_Sariya@nowhere.com",
+                        "FirstName": "Pete",
+                        "LastName": "Sariya",
+                        "Phone": "202.555.5614",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "CarloPAss21",
+                        "email": "Monty_Carlo@nowhere.com",
+                        "FirstName": "Monty",
+                        "LastName": "Carlo",
+                        "Phone": "212.555.4383",
+                        "PrefEmail": 1,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "MonellaPAss22",
+                        "email": "Sal_Monella@nowhere.com",
+                        "FirstName": "Sal",
+                        "LastName": "Monella",
+                        "Phone": "222.555.5214",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "VaneerPAss23",
+                        "email": "Sue_Vaneer@nowhere.com",
+                        "FirstName": "Sue",
+                        "LastName": "Vaneer",
+                        "Phone": "232.555.8996",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "HangerPAss24",
+                        "email": "Cliff_Hanger@nowhere.com",
+                        "FirstName": "Cliff",
+                        "LastName": "Hanger",
+                        "Phone": "242.555.5554",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "DwyerPAss25",
+                        "email": "Barb_Dwyer@nowhere.com",
+                        "FirstName": "Barb",
+                        "LastName": "Dwyer",
+                        "Phone": "252.555.5223",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "AkiPAss26",
+                        "email": "Terry_Aki@nowhere.com",
+                        "FirstName": "Terry",
+                        "LastName": "Aki",
+                        "Phone": "262.555.8374",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "AnderPAss27",
+                        "email": "Cory_Ander@nowhere.com",
+                        "FirstName": "Cory",
+                        "LastName": "Ander",
+                        "Phone": "272.555.9145",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    },
+                    {
+                        "Password": "BanksPAss28",
+                        "email": "Robin_Banks@nowhere.com",
+                        "FirstName": "Robin",
+                        "LastName": "Banks",
+                        "Phone": "282.555.2132",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "ChangaPAss29",
+                        "email": "Jimmy_Changa@nowhere.com",
+                        "FirstName": "Jimmy",
+                        "LastName": "Changa",
+                        "Phone": "292.555.9762",
+                        "PrefEmail": 0,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "WinePAss30",
+                        "email": "Barry_Wine@nowhere.com",
+                        "FirstName": "Barry",
+                        "LastName": "Wine",
+                        "Phone": "303.555.1547",
+                        "PrefEmail": 1,
+                        "PrefText": 1
+                    },
+                    {
+                        "Password": "MumduyaPAss31",
+                        "email": "Wilma_Mumduya@nowhere.com",
+                        "FirstName": "Wilma",
+                        "LastName": "Mumduya",
+                        "Phone": "313.555.3385",
+                        "PrefEmail": 0,
+                        "PrefText": 0
+                    }
+                ]
+        }
+    ]
+}
+

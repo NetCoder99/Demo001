@@ -19,6 +19,8 @@ using DependencyInjectionDemo.DataConnections;
 using WebApp2.Models.Addresses;
 using System.Data.Entity;
 using Demo001.DataConnections;
+using Demo001.Models.Account;
+using Demo001.Data.TestFiles;
 
 namespace Demo001
 {
@@ -28,7 +30,6 @@ namespace Demo001
         static void Main(string[] args)
         {
             InitialiazeDB();
-            //InitialiazeLists();
             //ShowCountries();
             //ShowStates();
 
@@ -43,8 +44,10 @@ namespace Demo001
         public static void InitialiazeDB()
         {
             DbConnection db_con = SqlExpDBConnection.SqlConnection();
-            new CountryCodesDB(db_con).Initialize();
-            new StateCodesDB(db_con).Initialize();
+            new UserAccountDB(db_con).Initialize(new GetTestUsersFiles());
+            new UserAccountDB(db_con).Initialize(new GetTestUsersFilesLong(), true);
+            //new CountryCodesDB(db_con).Initialize();
+            //new StateCodesDB(db_con).Initialize();
         }
 
 
@@ -52,8 +55,9 @@ namespace Demo001
         public static void InitialiazeLists()
         {
             DbConnection db_con = SqlExpDBConnection.SqlConnection();
-            CountryCodeList.Initialize(new CountryCodesDB(db_con));
-            StateCodeList.Initialize(new StateCodesDB(db_con));
+            //CountryCodeList.Initialize(new CountryCodesDB(db_con));
+            //StateCodeList.Initialize(new StateCodesDB(db_con));
+
         }
 
         public static void ShowCountries()

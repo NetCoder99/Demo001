@@ -1,0 +1,69 @@
+﻿{
+  "UserAccount": [
+    {
+      "UserFields":      [
+        {
+          "Name": "UserAccountId",
+          "Type": "int",
+          "Key": true
+        },
+        {
+          "Name": "EmailAddress",
+          "Type": "string",
+          "Length": "50"
+        },
+        {
+          "Name": "PassWord",
+          "Type": "string",
+          "Length": "50"
+        },
+        {
+          "Name": "FirstName",
+          "Type": "string",
+          "Length": "50"
+        },
+        {
+          "Name": "LastName",
+          "Type": "string",
+          "Length": "50"
+        },
+        {
+          "Name": "PhoneNumber",
+          "Type": "string",
+          "Length": "50"
+        },
+        {
+          "Name": "NotifyPrefEmail",
+          "Type": "bool"
+        },
+        {
+          "Name": "NotifyPrefText",
+          "Type": "bool"
+        }
+      ],
+      "UserDetails": 
+      [
+        {
+          "Name": "Mario Speedwagon",
+          "Password": "SpeedwagonPAss2",
+          "email": "Mario_Speedwagon@nowhere.com",
+          "FirstName": "Mario",
+          "LastName": "Speedwagon",
+          "Phone": "222.555.1388",
+          "PrefEmail": 1,
+          "PrefText": 1
+        },
+        {
+          "Name": "Petey Cruiser",
+          "Password": "CruiserPAss3",
+          "email": "Petey_Cruiser@nowhere.com",
+          "FirstName": "Petey",
+          "LastName": "Cruiser",
+          "Phone": "333.555.2465",
+          "PrefEmail": 1,
+          "PrefText": 0
+        }
+      ]
+    }
+    ]
+}
