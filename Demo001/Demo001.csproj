@@ -57,12 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConnections\SqlExpDBConnection.cs" />
-    <Compile Include="DataConnections\SqlRmtDBConnection.cs" />
-    <Compile Include="DataConnections\OracleDBConnection.cs" />
+    <Compile Include="Data\DataConnections\SqlExpDBConnection.cs" />
+    <Compile Include="Data\DataConnections\SqlRmtDBConnection.cs" />
+    <Compile Include="Data\DataConnections\OracleDBConnection.cs" />
+    <Compile Include="Data\DbContextClasses\UserAccountDb.cs" />
+    <None Include="Data\DbContextClasses\UserAccountInitList.json" />
+    <Compile Include="Data\DbContextClasses\UserAccountProcs.cs" />
     <Compile Include="Models\Account\AccountDb.cs" />
     <Compile Include="Models\Account\LoginCreds.cs" />
-    <Compile Include="Models\Account\NotifyPref.cs" />
     <Compile Include="Models\Account\UserAccount.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCode.cs" />
     <Compile Include="Models\Addresses\Countries\CountryCodeList.cs" />

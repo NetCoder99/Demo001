@@ -15,9 +15,7 @@ namespace WebApp2.Models.Account
     public class AccountDb : DbContext
     {
         public AccountDb() : base("WebApp2")
-        {
-
-        }
+        {   }
 
         public DbSet<LoginCreds>  LoginCreds  { get; set; }
         public DbSet<UserAccount> UserAccount { get; set; }

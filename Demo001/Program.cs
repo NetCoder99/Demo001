@@ -18,8 +18,9 @@ using System.Collections.Generic;
 using DependencyInjectionDemo.DataConnections;
 using WebApp2.Models.Addresses;
 using System.Data.Entity;
+using Demo001.DataConnections;
 
-namespace DependencyInjectionDemo
+namespace Demo001
 {
     class Program
     {

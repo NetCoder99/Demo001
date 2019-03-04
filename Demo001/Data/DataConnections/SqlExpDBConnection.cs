@@ -10,7 +10,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.SqlClient;
 
-namespace DependencyInjectionDemo.DataConnections
+namespace Demo001.DataConnections
 {
     class SqlExpDBConnection
     {
