@@ -20,8 +20,8 @@ namespace WebApp2.Models.Addresses
         public void Initialize()
         {
             Initialize(new GetStateCodesUSA());
-            Initialize(new GetStateCodesUSA());
-            Initialize(new GetStateCodesUSA());
+            Initialize(new GetStateCodesCAN());
+            Initialize(new GetStateCodesMEX());
         }
 
         private void Initialize(IGetStates states_list)
