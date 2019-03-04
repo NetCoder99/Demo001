@@ -6,10 +6,7 @@
 // the DbContext in EF6 to allow the app to talk to any database supported 
 // by the Entity Framework, mostly Sql Server and Oracle. 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// No actual dependency injection, yet. This mostly shows how to manage 
-// database connections and some EF Code First techniques
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// I also wanted to experiment with using EF Code First as a tool to 
+// I wanted to experiment with using EF Code First as a tool to 
 // initialize my databases, create the prototype tables, insert some test 
 // data etc. It works reaonsably well with Sql Server, not so much with 
 // Oracle. I still have to 'adjust' the tables in both Oracle and Sql Server

@@ -1,4 +1,10 @@
-﻿using System;
+﻿//============================================================================
+// John Dugger
+// 02/27/2019
+// Not active at thsi point, this will be the EF Code First activity that 
+// supports the database objects in my Web Application demo project.
+//============================================================================
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

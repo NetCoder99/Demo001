@@ -1,7 +1,8 @@
 ﻿//============================================================================
 // John Dugger
 // 02/27/2019
-// Mostly for the new user create page.
+// Not active at thsi point, this will be the EF Code First activity that 
+// supports the database objects in my Web Application demo project.
 //============================================================================
 using System;
 using System.Collections.Generic;
